@@ -3,45 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acer: Free Exam Prep & AI Tutor</title>
+    <title>Acer | Free Automated Learning</title>
     <style>
-        body { font-family: -apple-system, sans-serif; margin: 0; padding: 20px; background: #f4f7f6; color: #333; text-align: center; }
-        .hero { max-width: 600px; margin: 40px auto; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        h1 { color: #007bff; margin-bottom: 10px; }
-        p { color: #666; font-size: 16px; line-height: 1.5; }
+        :root { --primary: #007bff; --bg-dark: #121212; --card-bg: #1e1e1e; --text-light: #f8f9fa; }
+        body { font-family: -apple-system, system-ui, sans-serif; margin: 0; background: var(--bg-dark); color: var(--text-light); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #000; border-bottom: 1px solid #333; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary); }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .hero { text-align: center; padding: 40px 20px; }
+        .btn { background: var(--primary); color: #fff; border: none; padding: 12px 24px; border-radius: 50px; font-weight: bold; cursor: pointer; text-decoration: none; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        .card { background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid #333; text-align: left; }
+        .card h3 { margin-top: 0; color: var(--primary); }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <h1>Welcome to Acer Study Portal</h1>
-        <p>Your 100% free automated study journey. Tap the chat icon in the bottom right corner to start learning, taking tests, and analyzing your progress instantly with our advanced AI tutor.</p>
+    <nav class="navbar">
+        <div class="logo">Acer</div>
+        <div style="background: #222; padding: 6px 12px; border-radius: 20px; font-size: 14px; border: 1px solid #444;">🔥 <span id="main-streak">5</span>-Day Streak</div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Ace your exams. Free for everyone.</h1>
+            <p style="color: #aaa; margin-bottom: 25px;">Simple, exam-first study guides explained clearly. Track progress natively with AI.</p>
+            <a href="#" class="btn" onclick="document.getElementById('tutor-toggle').click(); return false;">Launch AI Portal</a>
+        </section>
+
+        <h2>Core Exam Subjects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Maths</h3>
+                <p>Simple visual algebra, geometry, and formulas.</p>
+            </div>
+            <div class="card">
+                <h3>Science</h3>
+                <p>Clear experiments, biology essentials, and physics laws.</p>
+            </div>
+            <div class="card">
+                <h3>Computer Science</h3>
+                <p>Logic puzzles, basic algorithms, and coding blocks.</p>
+            </div>
+        </div>
     </div>
 
-    <!-- =============== ALL-IN-ONE AUTOMATED AI TUTOR WIDGET =============== -->
+    <!-- =============== ALL-IN-ONE SYSTEM =============== -->
     <div id="acer-tutor-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999;">
-        <button id="tutor-toggle" style="background: #007bff; color: white; border: none; padding: 14px 22px; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-weight: bold; font-size: 15px;">💬 Study with Acer AI</button>
-        
-        <div id="tutor-window" style="display: none; width: 340px; height: 500px; background: white; border-radius: 14px; box-shadow: 0 5px 25px rgba(0,0,0,0.25); flex-direction: column; overflow: hidden; position: absolute; bottom: 65px; right: 0; border: 1px solid #eee;">
-            <div style="background: #007bff; color: white; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; font-size: 15px;">
-                <span>Acer AI Automated Tutor</span>
-                <button id="tutor-close" style="background: none; border: none; color: white; cursor: pointer; font-size: 16px;">✕</button>
+        <button id="tutor-toggle" style="background: var(--primary); color: white; border: none; padding: 14px 22px; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.4); font-weight: bold;">💬 Study Hub</button>
+        <div id="tutor-window" style="display: none; width: 340px; height: 480px; background: #1a1a1a; border-radius: 14px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); flex-direction: column; overflow: hidden; position: absolute; bottom: 65px; right: 0; border: 1px solid #333;">
+            <div style="background: #000; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; border-bottom: 1px solid #333;">
+                <span>Acer AI Workspace</span>
+                <button id="tutor-close" style="background: none; border: none; color: white; cursor: pointer;">✕</button>
             </div>
             <div id="tutor-auth" style="padding: 25px; display: flex; flex-direction: column; gap: 12px; justify-content: center; height: 100%; box-sizing: border-box;">
-                <h3 style="margin: 0; color: #333;">Student Dashboard Login</h3>
-                <p style="margin: 0 0 10px 0; font-size: 13px; color: #778;">Enter email to automatically save your XP and progress charts.</p>
-                <input type="email" id="student-email" placeholder="Enter your student email..." style="padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; outline: none;">
-                <button id="student-login-btn" style="background: #28a745; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer;">Initialize Portal</button>
+                <input type="email" id="student-email" placeholder="Student Email Address" style="padding: 12px; background: #222; border: 1px solid #444; border-radius: 8px; color: #fff; outline: none;">
+                <button id="student-login-btn" style="background: #28a745; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer;">Sync Profile</button>
             </div>
             <div id="tutor-main" style="display: none; flex-direction: column; height: calc(100% - 50px);">
-                <div id="tutor-dashboard" style="background: #f8f9fa; padding: 10px 15px; border-bottom: 1px solid #eee; font-size: 13px; display: flex; justify-content: space-between;">
-                    <span id="display-email" style="font-weight: 500; color: #555;"></span>
+                <div style="background: #222; padding: 10px 15px; border-bottom: 1px solid #333; font-size: 13px; display: flex; justify-content: space-between;">
+                    <span id="display-email" style="color: #aaa;"></span>
                     <span style="color: #ff9900; font-weight: bold;">⚡ <span id="display-xp">0</span> XP</span>
                 </div>
-                <div id="chat-body" style="flex: 1; padding: 15px; overflow-y: auto; font-size: 14px; display: flex; flex-direction: column; gap: 12px; background: #fafafa;"></div>
-                <div style="padding: 10px; border-top: 1px solid #eee; display: flex; gap: 6px; background: #fff;">
-                    <input type="text" id="chat-input" placeholder="Type teach [topic], test, or report..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; outline: none;">
-                    <button id="send-btn" style="background: #007bff; color: white; border: none; padding: 10px 14px; border-radius: 6px; cursor: pointer; font-weight: bold;">Send</button>
+                <div id="chat-body" style="flex: 1; padding: 15px; overflow-y: auto; font-size: 14px; display: flex; flex-direction: column; gap: 12px;"></div>
+                <div style="padding: 10px; border-top: 1px solid #333; display: flex; gap: 6px; background: #111;">
+                    <input type="text" id="chat-input" placeholder="teach [topic], test, or report..." style="flex: 1; padding: 10px; background: #222; border: 1px solid #444; border-radius: 6px; color: #fff; outline: none;">
+                    <button id="send-btn" style="background: var(--primary); color: white; border: none; padding: 10px 14px; border-radius: 6px; cursor: pointer; font-weight: bold;">Go</button>
                 </div>
             </div>
         </div>
@@ -66,70 +93,53 @@
 
         loginBtn.onclick = () => {
             const email = document.getElementById('student-email').value.trim();
-            if(!email || !email.includes('@')) return alert('Please enter a valid student email');
-            
+            if(!email || !email.includes('@')) return alert('Please enter your student email');
             let saved = localStorage.getItem('acer_' + email);
-            if(saved) {
-                currentStudent = JSON.parse(saved);
-            } else {
-                currentStudent = { email: email, xp: 0, scores: [1, 2, 2] };
-                localStorage.setItem('acer_' + email, JSON.stringify(currentStudent));
-            }
-            
+            currentStudent = saved ? JSON.parse(saved) : { email: email, xp: 0, scores: [1, 2, 3] };
+            localStorage.setItem('acer_' + email, JSON.stringify(currentStudent));
             document.getElementById('display-email').innerText = email;
             document.getElementById('display-xp').innerText = currentStudent.xp;
-            authDiv.style.display = 'none';
-            mainDiv.style.display = 'flex';
-            
-            appendMessage('ai', `### System Activated\nWelcome back to your personalized automated desk. Select a module by typing:\n\n* **"teach [any topic]"** — Explains topics using simple visual layout hierarchies.\n* **"test"** — Generates a dynamic tracking test and saves performance marks.\n* **"report"** — Compiles a real-time progress analytical graph chart.`);
+            authDiv.style.display = 'none'; mainDiv.style.display = 'flex';
+            appendMessage('ai', `### AI Workspace Activated\nWelcome! Type:\n* **"teach [topic]"** for breakdown steps.\n* **"test"** to generate tracked quizzes.\n* **"report"** to view real-time graphical analytics.`);
         };
 
         function appendMessage(sender, text) {
             const msg = document.createElement('div');
-            msg.style.padding = '10px 14px';
-            msg.style.borderRadius = '10px';
-            msg.style.maxWidth = '85%';
-            msg.style.lineHeight = '1.4';
+            msg.style.padding = '10px 14px'; msg.style.borderRadius = '10px'; msg.style.maxWidth = '85%';
             if(sender === 'user') {
-                msg.style.background = '#007bff'; msg.style.color = 'white'; msg.style.alignSelf = 'flex-end';
+                msg.style.background = var(--primary); msg.style.color = 'white'; msg.style.alignSelf = 'flex-end';
                 msg.innerText = text;
             } else if (sender === 'chart') {
                 msg.style.alignSelf = 'center';
-                msg.innerHTML = `<img src="${text}" style="width: 100%; max-width: 260px; border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.12); margin: 5px 0;">`;
+                msg.innerHTML = `<img src="${text}" style="width: 100%; max-width: 250px; border-radius: 8px; border:1px solid #444;">`;
             } else {
-                msg.style.background = '#eef1f4'; msg.style.color = '#222'; msg.style.alignSelf = 'flex-start';
+                msg.style.background = '#292929'; msg.style.color = '#eee'; msg.style.alignSelf = 'flex-start';
                 msg.innerHTML = marked.parse(text);
             }
-            chatBody.appendChild(msg);
-            chatBody.scrollTop = chatBody.scrollHeight;
+            chatBody.appendChild(msg); chatBody.scrollTop = chatBody.scrollHeight;
         }
 
         sendBtn.onclick = () => {
-            const val = chatInput.value.trim();
-            if(!val) return;
-            chatInput.value = '';
-            appendMessage('user', val);
-
+            const val = chatInput.value.trim(); if(!val) return;
+            chatInput.value = ''; appendMessage('user', val);
             const cmd = val.toLowerCase();
             setTimeout(() => {
                 if(cmd.startsWith('teach')) {
-                    appendMessage('ai', `### Visual Lesson Concept\nHere is your requested structural roadmap:\n\`\`\`\n[Concept Input] ➔ [AI Parsing Engine] ➔ [Visual Charts Output]\n\`\`\`\nThis visual breakdown simplifies data structures into high-yield memory loops.`);
+                    appendMessage('ai', `### Topic Map\n\`\`\`\n[Concept Base] ➔ [Analytical Processing] ➔ [Result]\n\`\`\`\nThis structural logic sequence optimizes long-term data retention loops.`);
                 } else if(cmd === 'test') {
-                    appendMessage('ai', `### Dynamic Assessment Matrix\n**Question:** Identify the primary engine parameter required for visual automation charts?\n\n*(Type your feedback answer to instantly add points and update the database)*`);
-                    currentStudent.xp += 50;
-                    currentStudent.scores.push(Math.floor(Math.random() * 3) + 1);
+                    appendMessage('ai', `### Quick Evaluation\n**Question:** State the main metric indicator processing performance charts?\n\n*(Type response to track score metrics)*`);
+                    currentStudent.xp += 50; currentStudent.scores.push(Math.floor(Math.random() * 3) + 1);
                     if(currentStudent.scores.length > 4) currentStudent.scores.shift();
                     localStorage.setItem('acer_' + currentStudent.email, JSON.stringify(currentStudent));
                     document.getElementById('display-xp').innerText = currentStudent.xp;
                 } else if(cmd === 'report') {
-                    const s = currentStudent.scores.join(',');
-                    const chartUrl = `https://quickchart.io{type:'line',data:{labels:['Quiz1','Quiz2','Quiz3','Current'],datasets:[{label:'Progress Analytics Curve',data:[${s}],borderColor:'rgb(0,123,255)',fill:false,lineTension:0.3}]}}`;
+                    const chartUrl = `https://quickchart.io{type:'line',data:{labels:['Q1','Q2','Q3','Current'],datasets:[{label:'Score Curve',data:[${currentStudent.scores.join(',')}],borderColor:'cyan',fill:false}]}}`;
                     appendMessage('chart', chartUrl);
-                    appendMessage('ai', `**Automated Tracking Evaluation:**\nYour chart reveals consistent progress. System recommends continuing automated testing to keep the level multiplier active.`);
+                    appendMessage('ai', `**Automated Diagnostic Insights:** Curve indicates progressive baseline mastery.`);
                 } else {
-                    appendMessage('ai', "Command unverified. Please input **teach [topic]**, **test**, or **report** to initialize standard automation routines.");
+                    appendMessage('ai', "Format unverified. Provide **teach**, **test**, or **report** pipelines to run analytics.");
                 }
-            }, 400);
+            }, 300);
         };
     </script>
 </body>
